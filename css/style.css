@@ -1,0 +1,94 @@
+/* import font from /fonts/fun.TTF */
+
+@font-face {
+    font-family: 'fun';
+    src: url('/fonts/fun.TTF') format('truetype');
+}
+
+body {
+    background-color: #540375;
+    color: #ffffff;
+    font-family: 'fun', sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-size: 3em;
+    text-align: center;
+    margin: 20px 0 0 0;
+    text-shadow: 3px 5px 0 rgba(0, 0, 0, 0.5);
+    color: #10A19D;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.leaderboard-button {
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.star {
+    text-decoration: none !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 480px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.wrapper .cell {
+    background-color: #FFBF00;
+    padding: 10px;
+    height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.wrapper .cell span.X {
+    color: #D82148;
+    text-shadow: 3px 5px 0 rgba(0, 0, 0, 1);
+}
+
+.wrapper .cell span.O {
+    color: #764AF1;
+    text-shadow: 3px 5px 0 rgba(0, 0, 0, 1);
+}
+
+.wrapper .cell:nth-child(1) {
+    border-top-left-radius: 4px;
+}
+
+.wrapper .cell:nth-child(3) {
+    border-top-right-radius: 4px;
+}
+
+.wrapper .cell:nth-child(7) {
+    border-bottom-left-radius: 4px;
+}
+
+.wrapper .cell:nth-child(9) {
+    border-bottom-right-radius: 4px;
+}
