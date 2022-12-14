@@ -83,6 +83,11 @@ body {
     text-shadow: 3px 5px 0 rgba(0, 0, 0, 1);
 }
 
+.wrapper .cell.winning-cell {
+    background-color: #222;
+    box-shadow: 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
 .color-red {
     color: var(--color-red);
 }
@@ -134,6 +139,9 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+.modal.active {
     display: block;
 }
 .modal-content {
@@ -153,12 +161,32 @@ body {
     text-align: center;
     text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
 }
+.modal-message {
+    color: #ddd;
+    font-size: 12px;
+    text-align: center;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    /* margin-top: 20px; */
+    margin:0;
+    padding: 0;
+}
+
 .modal-inner {
     margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     box-shadow: 0px 5px 0 rgba(0, 0, 0, 0.5);
 }
+
+.winner-message {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 3px 5px 0 rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+}
+
 .play-with-computer {
     color: #fff;
     display: flex;

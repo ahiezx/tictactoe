@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/lib.js" defer></script>
+    <script src="/js/main.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -14,6 +16,7 @@
     <div class="modal">
         <div class="modal-content">
             <h1 class="modal-title">Settings</h1>
+            <p class="modal-message"></p>
             <div class="modal-inner">
                 <!-- input for player name 1 -->
                 <div class="input">
@@ -28,7 +31,7 @@
 
                 <!-- checkbox -->
                 <div class=" checkbox play-with-computer">
-                    <input type="checkbox" id="checkbox">
+                    <input type="checkbox" id="computer">
                     <label for="checkbox">Play with computer</label>
                 </div>
 
@@ -47,8 +50,8 @@
         <p class="leaderboard-button">Leaderboard</p> <span class="star">✷</span>
     </div>
     <div class="wrapper">
-        <div class="cell" data-row="0" data-col="0"><span class="O">O</span></div>
-        <div class="cell" data-row="0" data-col="1"><span class="X">X</span></div>
+        <div class="cell" data-row="0" data-col="0"></div>
+        <div class="cell" data-row="0" data-col="1"></div>
         <div class="cell" data-row="0" data-col="2"></div>
 
         <div class="cell" data-row="1" data-col="0"></div>
