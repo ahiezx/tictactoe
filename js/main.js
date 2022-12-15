@@ -11,6 +11,7 @@ let winner;
 let cells = document.querySelectorAll('.cell');
 let gameEnded = false;
 let board = Array(3).fill(null).map(() => Array(3).fill(null));
+showModalSettings();
 
 // Initialize players
 let currentPlayer = 'X';
