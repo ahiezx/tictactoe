@@ -122,15 +122,18 @@ const endGame = () => {
         changeWinningCellsColor(getWinner());
         setModalMessage(`${getWinner()[0]} won!`);
         showModalSettings();
+        setButtonEventListeners();
     } else if (isDraw()) {
         setModalMessage('Draw!');
         showModalSettings();
+        setButtonEventListeners();
     }
 
     gameEnded = true;
 }
 
 const resetGame = () => {
+    saved = false;
     board = Array(3).fill(null).map(() => Array(3).fill(null));
     gameEnded = false;
     const cells = document.querySelectorAll('.cell');

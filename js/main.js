@@ -5,21 +5,27 @@ let playerX, playerO, playWithBot, saved;
 
 showModalSettings();
 
-document.querySelector('.btn-save').addEventListener('click', () => {
-    resetGame();
-    saved = true;
-    playerX = document.querySelector('#player1').value;
-    playerO = document.querySelector('#player2').value;
-    playWithBot = document.querySelector('#computer').checked;
-    if (playWithBot) {
-        playerO = 'Computer';
+const setButtonEventListeners = () => {
+    document.querySelector('.btn-save').addEventListener('click', () => {
+        resetGame();
+        saved = true;
+        try{
+            playerX = document.querySelector('#player1').value;
+            playerO = document.querySelector('#player2').value;
+            playWithBot = document.querySelector('#computer').checked;
+        } catch (e) {}
+        if (playWithBot) {
+            playerO = 'Computer';
+        }
+        if (playerX === '') {
+            playerX = 'Player X';
+        }
+        closeModalSettings();
     }
-    if (playerX === '') {
-        playerX = 'Player X';
-    }
-    closeModalSettings();
+    );
 }
-);
+
+setButtonEventListeners();
 
 // Initialize game
 let winner;
