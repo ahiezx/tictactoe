@@ -1,11 +1,8 @@
-/* import font from /fonts/fun.TTF */
-
 @font-face {
     font-family: 'fun';
     src: url('/fonts/fun.TTF') format('truetype');
 }
 
-/* root */
 :root {
     --color-red: #D82148;
     --color-blue: #764AF1;
@@ -84,16 +81,14 @@ body {
 }
 
 .wrapper .cell.winning-cell {
-    background-color: #222;
+    background-color: #333;
     box-shadow: 3px 5px 0 rgba(0, 0, 0, 0.5);
 }
 
-.color-red {
-    color: var(--color-red);
-}
-.color-blue {
-    color: var(--color-blue);
-}
+.color-red {color: var(--color-red) !important;}
+.color-blue {color: var(--color-blue) !important;}
+.background-red {background-color: var(--color-red);color:white;}
+.background-blue {background-color: var(--color-blue);color:white;}
 
 .wrapper .cell:nth-child(1) {border-top-left-radius: 4px;}
 .wrapper .cell:nth-child(3) {border-top-right-radius: 4px;}
@@ -224,4 +219,81 @@ body {
     font-family: 'fun', sans-serif;
     background-color: var(--color-blue);
     color: #fff;
+}
+.btn-close {
+    font-family: 'fun', sans-serif;
+    background-color: var(--color-blue);
+    color: #fff;    
+}
+
+.leaderboard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 100;
+}
+.leaderboard.active {
+    display: block;
+}
+.leaderboard-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #2C272E;
+    border-radius: 3px;
+    padding: 20px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.leaderboard-title {
+    font-size: 2rem;
+    color: #fff;
+    margin:0;
+    text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.leaderboard-subtitle {
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.leaderboard-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.leaderboard-item-name {
+    color: #fff;
+    font-size: 1rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+.leaderboard-item-score {
+    color: #fff;
+    font-size: 1rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+.leaderboard-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }

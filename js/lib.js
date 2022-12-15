@@ -1,16 +1,17 @@
+// Show modal settings
 const showModalSettings = () => {
     const modal = document.querySelector('.modal');
     modal.classList.add('active');
 };
 
+// Close modal settings
 const closeModalSettings = () => {
     const modal = document.querySelector('.modal');
     modal.classList.remove('active');
 }
 
+// Set modal message
 const setModalMessage = (message) => {
-    // multi line html
-    const modalMessage = document.querySelector('.modal-message');
     const modalInner = document.querySelector('.modal-inner');
     modalInner.innerHTML = `
         <p class='winner-message'>${message}</p>
@@ -20,14 +21,24 @@ const setModalMessage = (message) => {
     `;
 }
 
-// Get rows
+// Show leaderboard
+const showLeaderboard = () => {
+    const leaderboard = document.querySelector('.leaderboard');
+    leaderboard.classList.add('active');
+}
 
+// Close leaderboard
+const closeLeaderboard = () => {
+    const leaderboard = document.querySelector('.leaderboard');
+    leaderboard.classList.remove('active');
+}
+
+// Get rows
 const getRows = (cell) => {
     return parseInt(cell.getAttribute('data-row'));
 }
 
 // Get columns
-
 const getCols = (cell) => {
     return parseInt(cell.getAttribute('data-col'));
 }
@@ -61,25 +72,21 @@ const getWinner = () => {
 }
 
 // Get the cell from the board
-
 const getCell = (row, col) => {
     return board[row][col];
 }
 
 // Set the cell on the board
-
 const setCell = (row, col, value) => {
     board[row][col] = value;
 }
 
 // Check if the cell is empty
-
 const isEmpty = (row, col) => {
     return board[row][col] === null;
 }
 
 // Check if the board is full
-
 const isFull = () => {
     for (let row = 0; row < 3; row++) {
         for (let col = 0; col < 3; col++) {
@@ -92,23 +99,21 @@ const isFull = () => {
 }
 
 // Check if the game is over
-
 const isGameOver = () => {
     return isFull() || getWinner() !== null;
 }
 
 // Check if the game is a draw
-
 const isDraw = () => {
     return isFull() && getWinner() === null;
 }
 
 // Check if the game is won
-
 const isWon = () => {
     return getWinner() !== null;
 }
 
+// Change the color of the winning cells
 const changeWinningCellsColor = (winner) => {
     const winningCells = document.querySelectorAll(`[data-row="${winner[2][0]}"][data-col="${winner[2][1]}"], [data-row="${winner[2][2]}"][data-col="${winner[2][3]}"], [data-row="${winner[2][4]}"][data-col="${winner[2][5]}"]`);
     winningCells.forEach(cell => {
@@ -119,8 +124,16 @@ const changeWinningCellsColor = (winner) => {
 const endGame = () => {
 
     if (isWon()) {
-        changeWinningCellsColor(getWinner());
-        setModalMessage(`${getWinner()[0]} won!`);
+        winner = getWinner();
+        changeWinningCellsColor(winner);
+        if(winner[0] === 'X') {
+            playerXScore++;
+            document.querySelector('#player1-score').innerHTML = playerXScore;
+        } else {
+            playerOScore++;
+            document.querySelector('#player2-score').innerHTML = playerOScore;
+        }
+        setModalMessage(`Player ${winner[0]} won!`);
         showModalSettings();
         setButtonEventListeners();
     } else if (isDraw()) {
