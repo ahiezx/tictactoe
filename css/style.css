@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'fun';
-    src: url('/fonts/fun.TTF') format('truetype');
+    src: url('../fonts/fun.TTF') format('truetype');
 }
 
 :root {
