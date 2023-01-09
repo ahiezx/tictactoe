@@ -127,10 +127,12 @@ const endGame = () => {
         winner = getWinner();
         changeWinningCellsColor(winner);
         if(winner[0] === 'X') {
-            playerXScore++;
+            playerXScore = parseInt(localStorage.getItem('playerXScore')) + 1;
+            localStorage.setItem('playerXScore', playerXScore);
             document.querySelector('#player1-score').innerHTML = playerXScore;
         } else {
-            playerOScore++;
+            playerOScore = parseInt(localStorage.getItem('playerOScore')) + 1;
+            localStorage.setItem('playerOScore', playerOScore);
             document.querySelector('#player2-score').innerHTML = playerOScore;
         }
         setModalMessage(`Player ${winner[0]} won!`);

@@ -15,25 +15,57 @@ showModalSettings();
 
 // Initialize players
 let currentPlayer = 'X';
-let playerXScore = 0;
-let playerOScore = 0;
+let playerXScore = localStorage.getItem('playerXScore') || 0;
+let playerOScore = localStorage.getItem('playerOScore') || 0;
 
 // Initialize modal
 const setButtonEventListeners = () => {
+
+    playerX = localStorage.getItem('playerX');
+    playerO = localStorage.getItem('playerO');
+    playWithBot = localStorage.getItem('playWithBot');
+
+    try {
+
+        if(playerX) {
+            document.querySelector('#player1').value = playerX;
+        }
+        if(playerO) {
+            document.querySelector('#player2').value = playerO;
+        }
+        if(playWithBot === 'true') {
+            document.querySelector('#computer').checked = true;
+        } else {
+            document.querySelector('#computer').checked = false;
+        }        
+
+        document.querySelector('#player1-score').innerHTML = localStorage.getItem('playerXScore');
+        document.querySelector('#player2-score').innerHTML = localStorage.getItem('playerOScore');
+
+    } catch (e) {
+
+    }
+
     document.querySelector('.btn-save').addEventListener('click', () => {
         resetGame();
         saved = true;
         try{
+
             playerX = document.querySelector('#player1').value;
             playerO = document.querySelector('#player2').value;
-            playWithBot = document.querySelector('#computer').checked;
+            playWithBot = document.querySelector('#computer').checked;        
+
+            // use localstorage to save the settings and get the items if they exist
+
+            localStorage.setItem('playerX', playerX);
+            localStorage.setItem('playerO', playerO);
+            localStorage.setItem('playWithBot', playWithBot);
+
+
+            
+
         } catch (e) {}
-        if (playWithBot) {
-            playerO = 'Computer';
-        }
-        if (playerX === '') {
-            playerX = 'Player X';
-        }
+        
         closeModalSettings();
     }
     );
@@ -59,7 +91,7 @@ cells.forEach((cell, index) => {
         let row = getRows(cell);
         let col = getCols(cell);
 
-        if(playWithBot) {
+        if(localStorage.getItem('playWithBot') === 'true') {
             if (isEmpty(row, col)) {
                 setCell(row, col, 'X');
                 cell.innerHTML = '<span class="X">X</span>';
