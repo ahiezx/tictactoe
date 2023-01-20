@@ -21,6 +21,16 @@ const setModalMessage = (message) => {
     `;
 }
 
+const getScoreFromLocalStorage = () => {
+    if (localStorage.getItem('playerXScore') === null) {
+        localStorage.setItem('playerXScore', 0);
+    }
+    if (localStorage.getItem('playerOScore') === null) {
+        localStorage.setItem('playerOScore', 0);
+    }
+    return [parseInt(localStorage.getItem('playerXScore')), parseInt(localStorage.getItem('playerOScore'))];
+}
+
 // Show leaderboard
 const showLeaderboard = () => {
     const leaderboard = document.querySelector('.leaderboard');

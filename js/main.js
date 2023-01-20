@@ -15,8 +15,7 @@ showModalSettings();
 
 // Initialize players
 let currentPlayer = 'X';
-let playerXScore = localStorage.getItem('playerXScore') || 0;
-let playerOScore = localStorage.getItem('playerOScore') || 0;
+let playerXScore, playerOScore = getScoreFromLocalStorage();
 
 // Initialize modal
 const setButtonEventListeners = () => {
@@ -39,8 +38,7 @@ const setButtonEventListeners = () => {
             document.querySelector('#computer').checked = false;
         }        
 
-        document.querySelector('#player1-score').innerHTML = localStorage.getItem('playerXScore');
-        document.querySelector('#player2-score').innerHTML = localStorage.getItem('playerOScore');
+        [document.querySelector('#player1-score').innerHTML, document.querySelector('#player2-score').innerHTML] = getScoreFromLocalStorage();
 
     } catch (e) {
 
